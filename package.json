@@ -22,7 +22,8 @@
     "docker": "pnpm docker:build && pnpm docker:run && pnpm docker:bash",
     "test": "bash ./scripts/test.sh",
     "smokeTests": "bash ./scripts/smokeTests.sh",
-    "integrationTests": "bash ./scripts/integrationTests.sh"
+    "integrationTests": "bash ./scripts/integrationTests.sh",
+    "start:suitrader": "pnpm --filter \"@elizaos/agent\" start --isRoot --character='./characters/suiagent.character.json'"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
