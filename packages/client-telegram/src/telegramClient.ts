@@ -84,6 +84,12 @@ export class TelegramClient {
         return true;
     }
 
+    private async analyzeTrade(userId: string, username: string, message: string) {
+
+        elizaLogger.info("Analyzing trade:", userId, username, message);
+
+    }
+    
     private setupMessageHandlers(): void {
         elizaLogger.log("Setting up message handler...");
 
@@ -107,6 +113,21 @@ export class TelegramClient {
                 // Check group authorization first
                 if (!(await this.isGroupAuthorized(ctx))) {
                     return;
+                }
+
+                try {
+                    const userName = ctx.from?.username || ctx.from?.first_name || "Unknown";
+                    const message = ctx.message;
+                    const chatId = ctx.chat?.id.toString();
+                    const messageText =
+                        "text" in message
+                            ? message.text
+                            : "caption" in message
+                            ? message.caption
+                            : "";
+                    await this.analyzeTrade(chatId, userName, messageText);
+                } catch (error) {
+                    elizaLogger.error("Error analyzing trade:", error);
                 }
 
                 if (this.tgTrader) {
