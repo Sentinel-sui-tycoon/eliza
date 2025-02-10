@@ -21,6 +21,7 @@
     "dependencies": {
         "@cetusprotocol/aggregator-sdk": "^0.3.21",
         "@elizaos/core": "workspace:*",
+        "@elizaos/plugin-trustdb": "0.25.6-alpha.1",
         "@mysten/sui": "^1.16.0",
         "axios": "^1.7.9",
         "bignumber.js": "9.1.2",
