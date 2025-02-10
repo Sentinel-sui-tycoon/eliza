@@ -23,7 +23,8 @@
     "test": "bash ./scripts/test.sh",
     "smokeTests": "bash ./scripts/smokeTests.sh",
     "integrationTests": "bash ./scripts/integrationTests.sh",
-    "start:suitrader": "pnpm --filter \"@elizaos/agent\" start --isRoot --character='./characters/suiagent.character.json'"
+    "start:suitrader": "pnpm --filter \"@elizaos/agent\" start --isRoot --character='./characters/suiagent.character.json'",
+    "build:sui": "pnpm --filter \"@elizaos/plugin-sui\" build"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
